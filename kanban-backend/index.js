@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Task = require("./models/Task");
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -9,8 +11,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+const MONGODB_URL = process.env.MONGODB_URI || "mongodb://0.0.0.0:27017/kanban";
 mongoose
-  .connect("mongodb://0.0.0.0:27017/kanban", {
+  .connect(MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -41,5 +44,5 @@ app.delete("/api/tasks/:id", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://0.0.0.0:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
