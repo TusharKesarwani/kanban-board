@@ -13,10 +13,7 @@ app.use(express.json());
 
 const MONGODB_URL = process.env.MONGODB_URI || "mongodb://0.0.0.0:27017/kanban";
 mongoose
-  .connect(MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(MONGODB_URL)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
 
