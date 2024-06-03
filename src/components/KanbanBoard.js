@@ -19,13 +19,13 @@ const KanbanBoard = () => {
   }, []);
 
   const fetchTasks = async () => {
-    const response = await axios.get("http://localhost:5000/api/tasks");
+    const response = await axios.get("https://kanban-board-5rrw.onrender.com/api/tasks");
     setTasks(response.data);
   };
 
   const createTask = async () => {
     const response = await axios.post(
-      "http://localhost:5000/api/tasks",
+      "https://kanban-board-5rrw.onrender.com/api/tasks",
       newTask
     );
     setTasks([...tasks, response.data]);
@@ -38,7 +38,7 @@ const KanbanBoard = () => {
 
   const saveTask = async (task) => {
     const response = await axios.put(
-      `http://localhost:5000/api/tasks/${task._id}`,
+      `https://kanban-board-5rrw.onrender.com/api/tasks/${task._id}`,
       task
     );
     setTasks(tasks.map((t) => (t._id === task._id ? response.data : t)));
@@ -46,7 +46,7 @@ const KanbanBoard = () => {
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+    await axios.delete(`https://kanban-board-5rrw.onrender.com/api/tasks/${id}`);
     setTasks(tasks.filter((t) => t._id !== id));
   };
 
