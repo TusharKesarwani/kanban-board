@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Task = require("./models/Task");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
@@ -18,8 +18,14 @@ mongoose
   .catch((err) => console.error(err));
 
 app.get("/api/tasks", async (req, res) => {
-  const tasks = await Task.find();
-  res.json(tasks);
+  try {
+    const tasks = await Task.find();
+    res.json(tasks);
+    console.log(tasks);
+  } catch (error) {
+    console.error("Error fetching Tasks:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 app.post("/api/tasks", async (req, res) => {
