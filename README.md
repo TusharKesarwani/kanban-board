@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Kanban Board project is a task management system with CRUD (Create, Read, Update, Delete) functionality. It allows users to manage tasks by creating, updating, deleting, and moving them across different status columns (To Do, In Progress, Completed). The frontend is built using React.js, while the backend is developed using Node.js and Express.js, with a MongoDB database for storage.
+The Kanban Board project is a task management system with CRUD (Create, Read, Update, Delete) functionality. It allows users to manage tasks by creating, updating, deleting, and moving them across different status columns (To Do, On Progress, Done). The frontend is built using React.js, while the backend is developed using Node.js and Express.js, with a MongoDB database for storage.
 
 ## Key Features
 
