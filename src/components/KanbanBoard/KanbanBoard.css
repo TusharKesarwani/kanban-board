@@ -11,10 +11,26 @@
 }
 
 .no-task {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100% ;
-    opacity: 0.5;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  opacity: 0.5;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 780px) {
+  .kanban-board {
+    flex-direction: column;
+    height: auto;
+  }
+  .add-task {
+    height: 100vh;
+  }
+  .columns {
+    flex-direction: column;
+  }
+  .no-task {
+    height: 100vh;
+  }
 }

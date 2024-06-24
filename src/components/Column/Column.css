@@ -39,3 +39,11 @@
   font-size: 18px;
   font-weight: 600;
 }
+
+@media screen and (max-width: 780px) {
+  .column {
+    width: auto;
+    align-items: center;
+    justify-content: center;
+  }
+}

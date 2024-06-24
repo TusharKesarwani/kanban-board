@@ -3,7 +3,7 @@ import axios from "axios";
 import Column from "../Column/Column";
 import EditTaskModal from "../EditTaskModal/EditTaskModal";
 import AddTask from "../AddTask/AddTask";
-import './KanbanBoard.css';
+import "./KanbanBoard.css";
 
 const KanbanBoard = () => {
   const [tasks, setTasks] = useState([]);
@@ -81,24 +81,19 @@ const KanbanBoard = () => {
             ""
           )
         )}
-        {tasks.length === 0 ? (
-          <h1 className="no-task">
-            No Tasks
-          </h1>
-        ) : (
-          ""
+        {tasks.length === 0 ? <h1 className="no-task">No Tasks</h1> : ""}
+      </div>
+      <div>
+        {selectedTask && (
+          <EditTaskModal
+            isOpen={isModalOpen}
+            onRequestClose={() => setIsModalOpen(false)}
+            task={selectedTask}
+            onChange={handleModalChange}
+            onSave={saveTask}
+          />
         )}
       </div>
-
-      {selectedTask && (
-        <EditTaskModal
-          isOpen={isModalOpen}
-          onRequestClose={() => setIsModalOpen(false)}
-          task={selectedTask}
-          onChange={handleModalChange}
-          onSave={saveTask}
-        />
-      )}
     </div>
   );
 };
