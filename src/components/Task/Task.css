@@ -1,0 +1,18 @@
+.task {
+  background: #f9f9f9;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.task h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.task p {
+  font-size: 14px;
+  color: #666;
+}

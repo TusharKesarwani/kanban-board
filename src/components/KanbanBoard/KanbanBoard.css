@@ -1,0 +1,20 @@
+.kanban-board {
+  display: flex;
+  height: 90vh;
+  /* padding: 20px; */
+  overflow-x: hidden;
+}
+
+.columns {
+  display: flex;
+  width: 100%;
+}
+
+.no-task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% ;
+    opacity: 0.5;
+    font-weight: bold;
+}

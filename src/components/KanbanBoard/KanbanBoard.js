@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Column from "./Column";
-import EditTaskModal from "./EditTaskModal";
-import Task from "./Task";
+import Column from "../Column/Column";
+import EditTaskModal from "../EditTaskModal/EditTaskModal";
+import AddTask from "../AddTask/AddTask";
+import './KanbanBoard.css';
 
 const KanbanBoard = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
-    status: "To Do",
+    status: "",
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
@@ -19,7 +20,9 @@ const KanbanBoard = () => {
   }, []);
 
   const fetchTasks = async () => {
-    const response = await axios.get("https://kanban-board-5rrw.onrender.com/api/tasks");
+    const response = await axios.get(
+      "https://kanban-board-5rrw.onrender.com/api/tasks"
+    );
     setTasks(response.data);
   };
 
@@ -29,6 +32,7 @@ const KanbanBoard = () => {
       newTask
     );
     setTasks([...tasks, response.data]);
+    setNewTask({ title: "", description: "", status: "" });
   };
 
   const editTask = (task) => {
@@ -46,7 +50,9 @@ const KanbanBoard = () => {
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`https://kanban-board-5rrw.onrender.com/api/tasks/${id}`);
+    await axios.delete(
+      `https://kanban-board-5rrw.onrender.com/api/tasks/${id}`
+    );
     setTasks(tasks.filter((t) => t._id !== id));
   };
 
@@ -56,35 +62,32 @@ const KanbanBoard = () => {
 
   return (
     <div className="kanban-board">
-      <div class="add-task">
-        <input
-          type="text"
-          placeholder="Title"
-          value={newTask.title}
-          onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
-          class="m-2 p-2"
-        />
-        <textarea
-          placeholder="Description"
-          value={newTask.description}
-          onChange={(e) =>
-            setNewTask({ ...newTask, description: e.target.value })
-          }
-          class="m-2 p-2"
-        ></textarea>
-        <button onClick={createTask}>Add Task</button>
-      </div>
-
+      <AddTask
+        createTask={createTask}
+        newTask={newTask}
+        setNewTask={setNewTask}
+      />
       <div className="columns">
-        {["To Do", "On Progress", "Done"].map((status) => (
-          <Column
-            key={status}
-            status={status}
-            tasks={tasks}
-            onEdit={editTask}
-            onDelete={deleteTask}
-          />
-        ))}
+        {["To Do", "On Progress", "Done"].map((status) =>
+          tasks.filter((task) => task.status === status).length > 0 ? (
+            <Column
+              key={status}
+              status={status}
+              tasks={tasks}
+              onEdit={editTask}
+              onDelete={deleteTask}
+            />
+          ) : (
+            ""
+          )
+        )}
+        {tasks.length === 0 ? (
+          <h1 className="no-task">
+            No Tasks
+          </h1>
+        ) : (
+          ""
+        )}
       </div>
 
       {selectedTask && (

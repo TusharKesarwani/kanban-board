@@ -1,0 +1,18 @@
+.add-task {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  background-color: #6ae11e;
+  min-width: 20vw;
+}
+
+.add-task > div {
+  margin: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  .add-task {
+    min-width: 30vw;
+  }
+}

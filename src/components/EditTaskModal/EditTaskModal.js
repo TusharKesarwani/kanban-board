@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import './EditTaskModal.css';
 
 Modal.setAppElement("#root");
 

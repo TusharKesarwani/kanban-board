@@ -1,91 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #f5f5f5;
-}
-
-.kanban-board {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.add-task {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.columns {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.column {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  margin: 10px;
-  padding: 15px;
-  width: 30%;
-}
-
-.column h2 {
-  margin-top: 0;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.task {
-  background: #f9f9f9;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.task h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.task p {
-  font-size: 14px;
-  color: #666;
-}
-
-button {
-  margin: 5px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #e4d7d7;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-/* Modal styles */
-.ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0.75) !important;
-}
-
-.ReactModal__Content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  /* margin-right: -50%; */
-  /* transform: translate(-50%, -50%); */
-  padding: 20px;
-  border: 1px solid #ccc;
-  background: #fff;
-  border-radius: 4px;
-  outline: none;
+  background-color: #1ecbe1;
+  min-height: 100vh;
 }
