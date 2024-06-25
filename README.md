@@ -6,7 +6,7 @@ The Kanban Board project is a task management system with CRUD (Create, Read, Up
 
 ## Key Features
 
-- **Task Creation**: Users can create tasks with attributes such as title, description, status (To Do, In Progress, Completed), and date/time.
+- **Task Creation**: Users can create tasks with attributes such as title, description, status (To Do, On Progress, Done), and date/time.
 - **CRUD Operations**: Perform Create, Read, Update, and Delete operations on tasks.
 - **Status Management**: Move tasks between different status columns.
 - **Interactive Interface**: React.js frontend for seamless task management.
